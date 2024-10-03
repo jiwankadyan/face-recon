@@ -92,7 +92,9 @@ cnn_model.compile(optimizer='adam',
 x_train.shape
 
 cnn_model.summary()
-
+y_train = to_categorical(y_train, num_classes=20)
+y_valid = to_categorical(y_valid, num_classes=20)
+y_test = to_categorical(y_test, num_classes=20)
 history=cnn_model.fit(
     np.array(x_train), np.array(y_train), batch_size=64,
     epochs=5, verbose=2,
